@@ -63,9 +63,9 @@ public class GraphMain {
 	public static void storeData() throws IOException{
 		digraph = new Digraph();
 		
-		File file1 = new File("city.txt");
+		File file1 = new File("city.dat");
 	    Scanner cities = new Scanner(file1);
-	    File file2 = new File("road.txt");
+	    File file2 = new File("road.dat");
 	    Scanner roads = new Scanner(file2);
 	    while(cities.hasNext()){
 	    	String delims = "[ ]+";
