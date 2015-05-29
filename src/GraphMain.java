@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class GraphMain {
-	private static Scanner sc = new Scanner(System.in);
 	
+	private static Scanner sc = new Scanner(System.in);
 	
 	public static void displayMenu() {	
 		System.out.println(" Q   Query the city information by entering the city code.");
@@ -17,10 +17,10 @@ public class GraphMain {
 	public static void command() {
 		System.out.print("Command? ");
 		char menuInput = sc.next().toLowerCase().charAt(0);
-		if(menuInput == 'q' || menuInput == 'd' || menuInput == 'i'|| menuInput == 'r' || menuInput == 'e'){
+		if(menuInput == 'q' || menuInput == 'd' || menuInput == 'i'|| menuInput == 'r' || menuInput == 'h'){
 			int valueInput = sc.nextInt();
 			moveFromMenu(menuInput, valueInput);
-		} else if(menuInput == 'h') {
+		} else if(menuInput == 'e') {
 			displayMenu();
 			command();
 		} else {
@@ -35,7 +35,7 @@ public class GraphMain {
 		boolean run = true;
 		while(run){
 			switch(option){
-			case 'i':
+			case 'q':
 				System.out.println();
 				command();
 				break;
@@ -43,11 +43,14 @@ public class GraphMain {
 				System.out.println();
 				command();
 				break;
-			case 'p':
+			case 'i':
 				System.out.println();
 				command();
 				break;
-			case 's':
+			case 'r':
+				System.out.println();
+				command();
+			case 'h':
 				System.out.println();
 				command();
 			case 'e':
