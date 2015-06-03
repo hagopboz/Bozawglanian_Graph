@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Digraph {
 
-	public String[] cities;
+	public static String[] cities;
 	public HashTable table;
 	public BinomialQueue queue;
 	public AdjacencyList graph;
@@ -20,19 +20,25 @@ public class Digraph {
 
 	}
 
-	public void getNumCities(String[] args) {
+	public static void getNumCities(String city) {
 		BufferedReader input;
 		String nextLine;
+		String cityName = city;
 		int count = 0;
 
 		try {
-			input = new BufferedReader(new FileReader(args[0]));
+			input = new BufferedReader(new FileReader("city.dat"));
 			nextLine = input.readLine();
-
-			while (nextLine.compareTo(".") != 0) {
+			if(cityName == nextLine){
+				System.out.println(nextLine);
+			} else {
+				System.out.println("no");
+			}
+			while (nextLine != null) {
 				count++;
 				nextLine = input.readLine();
 			}
+			
 		} catch (IOException e) {
 			System.out.println("File Error");
 		}
@@ -138,6 +144,7 @@ public class Digraph {
 
 		Digraph d = new Digraph();
 		int start = 0;
+		String city;
 		Scanner sc = new Scanner(System.in);
 		boolean loop = true;
 		while(loop){
@@ -147,7 +154,9 @@ public class Digraph {
 			String option = sc.nextLine();
 			switch(option.toLowerCase()){
 			case "q":
-				//query();
+				System.out.print("City Code: ");
+				city = sc.nextLine();
+				getNumCities(city);
 				break;
 			case "d":
 				//minD();
@@ -172,7 +181,6 @@ public class Digraph {
 			}
 		}
 		sc.close();
-		d.getNumCities(args);
 		d.readFile(args);
 		d.printList();
 		d.Dijkstra(start);
@@ -188,4 +196,4 @@ public class Digraph {
 		System.out.println("E  Exit");													//check
 	}
 
-}
+}}
